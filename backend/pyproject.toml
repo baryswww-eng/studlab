@@ -1,0 +1,26 @@
+[project]
+name = "studlab-backend"
+version = "0.1.0"
+description = "STUD LAB — LMS backend (FastAPI)"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+markers = ["db: requires a running PostgreSQL (TEST_DATABASE_URL)"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "ASYNC"]
+ignore = ["S101"]  # assert is fine in tests
+
+[tool.ruff.lint.per-file-ignores]
+# Long Russian prose (lesson texts) — line length is irrelevant there.
+"app/scripts/demo_content.py" = ["E501"]
+"app/services/assessment_service.py" = ["E501"]  # AI reviewer prompt text
+"app/ai/prompts.py" = ["E501"]

@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/*
+ * STUD LAB design tokens — "Dark Premium".
+ * All colours are defined once here and exposed to Tailwind as
+ * bg-background, text-muted-foreground, border-border, bg-primary, etc.
+ */
+:root {
+  --background: #101827;
+  --foreground: #f8fafc;
+  --card: #17243b;
+  --card-foreground: #f8fafc;
+  --secondary: #1d2c46;
+  --muted: #17243b;
+  --muted-foreground: #94a3b8;
+  --primary: #7856ff;
+  --primary-foreground: #ffffff;
+  --accent: #38bdf8;
+  --accent-foreground: #0b1220;
+  --border: #29364b;
+  --input: #29364b;
+  --ring: #38bdf8;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --destructive: #f87171;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --radius-lg: var(--radius);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 45%, transparent);
+  }
+}
